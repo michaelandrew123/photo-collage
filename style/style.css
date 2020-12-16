@@ -1,0 +1,201 @@
+/**
+Version Name: Final-v.0.8
+*/
+
+:root{ 
+    --main-margin:10px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    width: 90%; 
+    padding: 0; 
+    margin: auto; 
+}
+.container-grid{
+    
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 2fr 2fr;
+    grid-template-rows: 2fr 0.5fr 0.5fr;
+    grid-template-areas: 
+        'main main sidebar sidebar' 
+        'content content content content' 
+        'content1 content1 content2 content2'
+    ;
+    grid-gap: 0.2rem;
+    background-color: #fff;
+}
+.border-lightgreen{
+    border: 1px solid lightgreen;
+}
+.border-dotted{
+    border: 2px dashed #ccc;
+}
+main{
+    /* background-color: aqua; */
+    grid-area: main; 
+    position: relative;
+    padding: var(--main-margin);
+    text-align: center;
+
+}
+#main-content{ 
+    background-position: center;
+    background-clip: content-box;
+}
+#main-content,
+#sidebar-content,
+#sub-content1,
+#sub-content2
+{ 
+   vertical-align: middle;
+    width: 100%;
+    height: 100%; 
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    background-size: contain;
+}
+img{
+    width: auto;
+    height: 100%; 
+}
+
+.image-card{
+    /* border: 1px solid red; */
+    /* //height: 100%; */
+    text-align: center;
+}
+#img-section{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.image-card-caption{ 
+    text-align: center;
+}
+.image-card-rotate{
+    /* -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    position: relative;
+    top: 40px;
+    width: 100%;
+    height: 80%; */
+}
+#sidebar{
+    /* background-color: aquamarine; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-area: sidebar;
+    padding: var(--main-margin);
+    text-align: center;
+    background-repeat: no-repeat;  
+    background-size: 80% 100%;
+    background-position: left;
+}
+.dashes_:before{
+/* content: "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
+letter-spacing: 4px; */
+}
+#content{ 
+    height: auto;
+    grid-area: content;
+    justify-content: center; 
+    margin: 20px 0px;
+    text-align: center;
+    position: relative;
+    border-top: 2px dashed #ccc;
+    
+}
+.sub-content{
+    width: 80%;
+    justify-content: space-around;
+    margin: auto;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+#img-sidebar{
+    width: 100%;
+}
+#content1{
+    /* background-color: rgb(71, 247, 188); */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    grid-area: content1;
+    padding: var(--main-margin);
+    text-align: center;
+}
+#content2{
+    /* background-color: rgb(120, 197, 171); */
+    grid-area: content2;
+    padding: var(--main-margin);
+    text-align: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+.alert-center{ 
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0px; 
+    margin: 10px 0px;
+}
+.alert-left{ 
+    justify-content: left;
+    text-align: left;
+    padding: 10px 0px; 
+    margin: 10px 0px;
+}
+.alert{
+    padding: 10px 20px;
+    margin:0px;
+    justify-content: space-around;
+    box-sizing: border-box;
+    box-shadow: none;
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+}
+.alert-primary{ 
+    background-color: rgb(110, 120, 180); 
+    color: #fff; 
+    border-radius: 5%;
+    border: none;
+}
+
+.alert-primary:hover,
+.alert-primary:active,
+.alert-primary:focus,
+.alert-primary:link
+{
+    border: none; 
+    background-color: rgb(100, 120, 248); 
+    color: #fff;
+    cursor: pointer;
+}
+
+.alert-success{
+    background-color: rgb(112, 219, 178); 
+    color: rgb(77, 68, 68); 
+    border-radius: 5%;
+    border: none;
+}
+
+.alert-success:hover,
+.alert-success:active, 
+.alert-success:link, 
+.alert-success:focus
+{
+    border: none; 
+    background-color: rgb(59, 230, 164); 
+    color: rgb(44, 40, 40); 
+    cursor: pointer;
+}
