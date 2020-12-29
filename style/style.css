@@ -10,6 +10,10 @@ Version Name: Final-v.0.8
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+body{
+
+    background-color: white;
+}
 .container{
     width: 90%; 
     padding: 0; 
@@ -18,13 +22,13 @@ Version Name: Final-v.0.8
 .container-grid{
     
     display: grid;
-    min-height: 100vh;
-    grid-template-columns: 1fr 1fr 2fr 2fr;
-    grid-template-rows: 2fr 0.5fr 0.5fr;
+    min-height: 110vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 0.3fr 0.3fr;
     grid-template-areas: 
-        'main main sidebar sidebar' 
-        'content content content content' 
-        'content1 content1 content2 content2'
+        'main main sidebar sidebar'  
+        'content1 content1 sidebar sidebar'
+        'content2 content2 sidebar sidebar'
     ;
     grid-gap: 0.2rem;
     background-color: #fff;
@@ -35,19 +39,27 @@ Version Name: Final-v.0.8
 .border-dotted{
     border: 2px dashed #ccc;
 }
-main{
-    /* background-color: aqua; */
+main{ 
     grid-area: main; 
-    position: relative;
-    padding: var(--main-margin);
+    position: relative; 
+    padding: 0px var(--main-margin);
     text-align: center;
-
+    justify-content: center;
+    align-items: center;
+    display: block; 
 }
 #main-content{ 
     background-position: center;
     background-clip: content-box;
 }
-#main-content,
+#main-content{ 
+    vertical-align: middle;
+    width: auto;
+    height: 100%; 
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: contain; 
+}
 #sidebar-content,
 #sub-content1,
 #sub-content2
@@ -56,7 +68,7 @@ main{
     width: 100%;
     height: 100%; 
     background-repeat: no-repeat;
-    background-size: 100% 100%; 
+    /* background-size: 100% 100%;  */
     background-size: contain;
 }
 img{
@@ -64,11 +76,7 @@ img{
     height: 100%; 
 }
 
-.image-card{
-    /* border: 1px solid red; */
-    /* //height: 100%; */
-    text-align: center;
-}
+
 #img-section{
     /* position: absolute;
     top: 50%;
@@ -95,13 +103,14 @@ img{
     padding: var(--main-margin);
     text-align: center;
     background-repeat: no-repeat;  
-    background-size: 80% 100%;
+    background-size: 100% 100%;
     background-position: left;
 }
 .dashes_:before{
 /* content: "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
 letter-spacing: 4px; */
 }
+
 #content{ 
     height: auto;
     grid-area: content;
@@ -126,21 +135,25 @@ letter-spacing: 4px; */
     width: 100%;
 }
 #content1{
-    /* background-color: rgb(71, 247, 188); */
     background-position: center;
-    background-size: contain;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     grid-area: content1;
     padding: var(--main-margin);
     text-align: center;
+    display: block;
+    align-items: center;
+    justify-content: space-around;
 }
 #content2{
-    /* background-color: rgb(120, 197, 171); */
     grid-area: content2;
     padding: var(--main-margin);
     text-align: center;
-    background-size: 100% auto;
     background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: auto 100%;
+    justify-content: space-around;
+    align-items: center;
 }
 .alert-center{ 
     justify-content: center;
@@ -199,3 +212,59 @@ letter-spacing: 4px; */
     color: rgb(44, 40, 40); 
     cursor: pointer;
 }
+.image-card > img 
+{
+    width: 100%;
+    height: auto;
+}
+.image-card{
+    text-align: center;
+    /* width: 70%; */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin: auto; 
+}
+
+.image-content1-card > img 
+{
+    width: 50%;
+    height: auto;
+}
+.image-content1-card{
+    text-align: center;
+}
+.image-content2-card{
+    text-align: center;
+  
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin: auto; 
+
+}
+.image-content2-card > img
+{
+    width: 100%;
+    height: auto;
+}
+@media only screen and (max-width: 600px) {
+    .image-card > img{
+        width: 100%;
+    }
+ 
+    .container-grid{
+     
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 2fr 0.2fr 0.2fr;
+        grid-template-areas: 
+            'main'
+            'sidebar'  
+            'content1'
+            'content2'
+        ; 
+    }
+    
+  }

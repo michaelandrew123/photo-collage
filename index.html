@@ -11,33 +11,35 @@
         <div class="container"> 
             <div class="container-grid">
                
-                <main onClick="triggerClick()" class="border-lightgreen">  
-                    <h4>FREIGHT</h4>
+                <main onClick="triggerClick()"  class="border-lightgreen">  
+                    <h4>AMZ CI</h4>
                     <div id="main-content" >  
                         <p style="display: none;" > 
                             <input type='file' id="input-file-1"  onChange="displayImage(this)"/> 
                         </p> 
-                        <div class="image-card"> 
+                        <div class="image-card append-image-main"> 
                             <!-- <img id="img-section"  style="margin-top: 30px; " src="./uploads/placeholder.png" />  -->
                         </div>
                     </div> 
                 </main>
 
-                <div id="sidebar" onClick="triggerClickSidebar()" class="border-lightgreen">
-                    <h4>AMZ CI</h4> 
-                    <span>Rotate image to -90 degree</span>
+                <div id="sidebar" onClick="triggerClickSidebar()" class="border-lightgreen" >
+                    <h4>FREIGHT</h4> 
+                    <!-- <span>Rotate image to -90 degree</span> -->
                     <div id="sidebar-content"> 
                         <p style="display: none;" >                    
                             <input type='file' id="input-file-2" onChange="displayImageSidebar(this)"/> 
                         </p>  
-                        <div class="image-card image-card-rotate"> 
+                        <div class="image-card image-card-rotate append-image-sidebar"> 
                             <!-- <img id="img-sidebar"  src="./uploads/placeholder.png" />  -->
                         </div>
                     </div> 
                 </div>
-                <div id="content" class=""> 
+
+                
+                <!-- <div id="content" class=""> 
                     <div class="sub-content"  >  
-                        <!-- <div id="dashes_1></div> -->
+                
                         <span>
                             <b> 
                                 RETURN AUTHORAZTION SLIP 
@@ -46,7 +48,10 @@
                         <br>
                         <span>Please cut and place the barcode and description below and place inside your Return package (in case your mailing label gets damaged)</span>
                     </div>
-                 </div>
+                 </div> -->
+
+
+                 
 
                 <div id="content1" onClick="triggerClickContent1()" class="border-lightgreen"> 
                     <h4>AMZ Rma</h4>
@@ -54,11 +59,12 @@
                         <p style="display: none;" >        
                             <input type='file' id="input-file-3" onChange="displayImageContent1(this)"/> 
                         </p>  
-                        <div class="image-card"> 
+                        <div class="image-content1-card append-image-content1"> 
                             <!-- <img id="img-content1"  src="./uploads/placeholder.png"  />  -->
                         </div>
                     </div> 
                 </div>
+
 
                 <div id="content2"  onClick="triggerClickContent2()" class="border-lightgreen">
                     <h4>ITEM Desc.</h4>
@@ -66,12 +72,15 @@
                         <p style="display: none;" >   
                             <input type='file' id="input-file-4" onChange="displayImageContent2(this)"/> 
                         </p>     
-                        <div class="image-card">  
+                        <div class="image-content2-card append-image-content2">  
                             <!-- <img id="img-content2"  src="./uploads/placeholder.png" /> -->
                         
                         </div>
                     </div> 
                 </div>
+
+
+
 
             </div>
             
@@ -104,7 +113,9 @@
                     $("main").addClass("border-dotted");
                     var reader = new FileReader(); 
                     reader.onload = function(e){ 
-                    document.querySelector('#main-content').style.backgroundImage = "url('"+ e.target.result+"')";
+                        //document.querySelector('#main-content').style.backgroundImage = "url('"+ e.target.result+"')";
+                        var name=document.querySelector(".append-image-main"); 
+                        name.appendChild(document.createElement('img')).src= e.target.result;
                 } 
                 reader.readAsDataURL(e.files[0]);  
                 }
@@ -119,12 +130,18 @@
                 if(e.files[0]){ 
                     $("#img-sidebar").show(); 
                     $("#sidebar > h4, #sidebar > span").hide();
+                    $("#sidebar").addClass("border-dotted");
                     $("#sidebar").removeClass('border-lightgreen');
                     var reader = new FileReader(); 
                     reader.onload = function(e){
-                        document.querySelector('#sidebar').style.backgroundImage = "url('"+ e.target.result+"')";
-                 
-                  //  document.querySelector('#img-sidebar').setAttribute('src', e.target.result);
+                         document.querySelector('#sidebar').style.backgroundImage = "url('"+ e.target.result+"')";
+                  
+
+                        // var name=document.querySelector(".append-image-sidebar"); 
+                        // name.appendChild(document.createElement('img')).src= e.target.result;
+
+
+
                 }
                 reader.readAsDataURL(e.files[0]); 
                 }
@@ -143,8 +160,17 @@
                     $("#content1").addClass("border-dotted");
                     var reader = new FileReader(); 
                     reader.onload = function(e){
-                    document.querySelector('#content1').style.backgroundImage = "url('"+ e.target.result+"')";
-                
+                     //document.querySelector('#content1').style.backgroundImage = "url('"+ e.target.result+"')";
+                   
+                     var name=document.querySelector(".append-image-content1");
+
+                    // name.appendChild(document.createTextNode('pizza'));
+                                        
+                    // name.appendChild(document.createElement('div')).textContent='spaghetti';
+                     name.appendChild(document.createElement('img')).src= e.target.result;
+
+
+
                 //    document.querySelector('#img-content1').setAttribute('src', e.target.result);
                 }
                 reader.readAsDataURL(e.files[0]); 
@@ -165,8 +191,11 @@
                     $("#content2").addClass("border-dotted");
                     var reader = new FileReader(); 
                     reader.onload = function(e){
-                        document.querySelector('#content2').style.backgroundImage = "url('"+ e.target.result+"')";
-                //    document.querySelector('#img-content2').setAttribute('src', e.target.result);
+                      //  document.querySelector('#content2').style.backgroundImage = "url('"+ e.target.result+"')";
+     
+                    var name=document.querySelector(".append-image-content2"); 
+                    name.appendChild(document.createElement('img')).src= e.target.result;
+
                 }
                 reader.readAsDataURL(e.files[0]); 
                 }
@@ -186,10 +215,10 @@
         });
 
         $("#btn-Convert-Html2Image").on('click', function () {  
-            var imgageData = getCanvas.toDataURL('image/jpeg', 1.0);
+            var imgageData = getCanvas.toDataURL('image/png', 1.0);
             // Now browser starts downloading it instead of just showing it
             var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-            $("#btn-Convert-Html2Image").attr("download", "aubrey.jpeg").attr("href", newData);
+            $("#btn-Convert-Html2Image").attr("download", "Amazon-Collage.png").attr("href", newData);
         });
 
  
