@@ -22,13 +22,11 @@ body{
 .container-grid{
     
     display: grid;
-    min-height: 110vh;
-    grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
-    grid-template-rows: 2fr 0.3fr 0.3fr;
+    min-height: 90vh;
+    grid-template-columns: 1.5fr 1.5fr .8fr .8fr;
+    grid-template-rows: 1fr;
     grid-template-areas: 
         'main main sidebar sidebar'  
-        'content1 content1 sidebar sidebar'
-        'content2 content2 sidebar sidebar'
     ;
     grid-gap: 0.2rem;
     background-color: #fff;
@@ -47,11 +45,37 @@ main{
     justify-content: center;
     align-items: center;
     display: block; 
+    
 }
 #main-content{ 
     background-position: center;
     background-clip: content-box;
+    /* padding: 50% 0;
+    height: 0; */
 }
+.rotate-main-image > img{ 
+    display: block;
+    /* transform-origin: top left;
+  /* Note: for a CLOCKWISE rotation, use the commented-out
+     transform instead of this one.  
+    transform: rotate(-90deg) translate(-100%); */
+    /* transform: rotate(90deg) translate(0, -100%); */
+    transform: rotate(90deg);
+    margin-top: -37%;
+
+  /* Not vital, but possibly a good idea if the element you're rotating contains
+     text and you want a single long vertical line of text and the pre-rotation
+     width of your element is small enough that the text wraps: */
+    white-space: nowrap; 
+}
+/* .rotate-main-image{
+      transform-origin: top left;
+    display: block;
+    transform: rotate(-90deg) translate(-100%);
+    margin-top: -50%;
+    white-space: nowrap;  
+
+} */
 #main-content{ 
     vertical-align: middle;
     width: auto;
